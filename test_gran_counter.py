@@ -1,5 +1,10 @@
 import pytest
 
+import gran_counter
+
+
+TestBuffer = CircularBuffer()
+
 def test_gran_init():
     pass
 
