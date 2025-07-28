@@ -2,8 +2,8 @@
 
 class CircularBuffer:
     
-    def __init__(self):
-        self.samples = []
+    def __init__(self, samples: float):
+        self.samples = samples
         self.input_counter = 0
         self.output_counter = 0
 
