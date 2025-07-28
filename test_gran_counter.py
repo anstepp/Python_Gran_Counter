@@ -2,11 +2,8 @@ import pytest
 
 from gran_counter import CircularBuffer
 
-
-TestBuffer = CircularBuffer()
-
 def test_gran_init():
-    pass
+    TestBuffer = CircularBuffer()
 
 def test_increment_input():
     pass
