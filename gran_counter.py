@@ -2,7 +2,7 @@
 
 class CircularBuffer:
     
-    def __init__(self, samples: float) -> None:
+    def __init__(self, samples: list[float]) -> None:
         self.samples = samples
         self.input_counter = 0
         self.output_counter = 0
