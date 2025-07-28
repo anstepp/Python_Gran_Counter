@@ -1,6 +1,6 @@
 import pytest
 
-import gran_counter
+from gran_counter import CircularBuffer
 
 
 TestBuffer = CircularBuffer()
