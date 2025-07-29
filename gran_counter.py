@@ -9,16 +9,16 @@ class CircularBuffer:
 
 
     def _advance_input_counter(self) -> None:
-        if input_counter < len(samples):
-            input_counter += 1
+        if self.input_counter < len(self.samples):
+            self.input_counter += 1
         else:
-            input_counter = 0
+            self.input_counter = 0
 
     def _advance_output_counter(self) -> None:
-        if output_counter < len(samples):
-            output_counter += 1
+        if self.output_counter < len(self.samples):
+            self.output_counter += 1
         else:
-            output_counter = 0
+            self.output_counter = 0
 
     def read_output(self) -> float:
         self._advance_output_counter()
