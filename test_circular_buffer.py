@@ -1,6 +1,6 @@
 import pytest
 
-from gran_counter import CircularBuffer
+from circular_buffer import CircularBuffer
 
 good_buffer = [0.0, 0.1, 0.2, 0.3]
 bad_buffer = [1, "string", "bad"]
