@@ -10,7 +10,7 @@ class WindowType(Enum):
 
 class Window: # Should this inherit from CircularBuffer instead of containing an instance?
 
-    def __init__(self, window_type: str, buffer: list[float]) -> None:
+    def __init__(self, window_size: int, window_type="hann": WindowType) -> None:
 
         self.window_type = window_type
         self.window_index = 0
@@ -19,7 +19,6 @@ class Window: # Should this inherit from CircularBuffer instead of containing an
 
 
     def _calculate_window(self, window_type: WindowType):
-        N = len(window)
         match window_type:
             case 1:
                 computed_window_samples = [0.5 * (1 - cos((2 * pi * n)/N)) for n in range(N)]
@@ -35,10 +34,9 @@ class Window: # Should this inherit from CircularBuffer instead of containing an
 
 class Granulator:
 
-    def __init__(self, window: Window, window_size: int, window_type="hann": WindowType):
-        self.sample_buffer = CircularBuffer(buffer)
-        self.buffer_index = 0
-        self.window = window(window_type)
+    def __init__(self, samples: list[float],window: Window, window_size: int, window_type="hann": WindowType):
+        self.sample_buffer = CircularBuffer(samples)
+        self.window = Window(window_size, window_type="hann")
 
     def return_sample(self):
         
