@@ -18,7 +18,7 @@ class Window: # Should this inherit from CircularBuffer instead of containing an
         self.window_buffer = CircularBuffer(computed_window_samples)
 
 
-    def _calculate_window(self, window_type: WindowType):
+    def _calculate_window(self, window_type: WindowType) -> list(float):
         match window_type:
             case 1:
                 computed_window_samples = [0.5 * (1 - cos((2 * pi * n)/N)) for n in range(N)]
@@ -34,7 +34,7 @@ class Window: # Should this inherit from CircularBuffer instead of containing an
 
 class Granulator:
 
-    def __init__(self, samples: list[float],window: Window, window_size: int, window_type="hann": WindowType):
+    def __init__(self, samples: list[float],window: Window, window_size: int, window_type="hann": WindowType) -> None:
         self.sample_buffer = CircularBuffer(samples)
         self.window = Window(window_size, window_type="hann")
 
