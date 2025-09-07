@@ -8,7 +8,7 @@ class WindowType(Enum):
     RECTANGULAR = 3
     TRAPEZOID = 4
 
-class Window:
+class Window: # Should this inherit from CircularBuffer instead of containing an instance?
 
     def __init__(self, window_type: str, buffer: list[float]) -> None:
 
@@ -38,7 +38,7 @@ class Granulator:
     def __init__(self, window: Window, window_size: int, window_type="hann": WindowType):
         self.sample_buffer = CircularBuffer(buffer)
         self.buffer_index = 0
-        self.window = window("hann")
+        self.window = window(window_type)
 
     def return_sample(self):
         
